@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    type DiaLaboral = 'Lunes' | 'Martes' | 'Miercoles' | 'Jueves' | 'Viernes';
+
+    const dias: DiaLaboral[] = ['Lunes' | 'Martes' | 'Miercoles' | 'Jueves' | 'Viernes'];
+
+    const diaSeleccionado = ref<DiaLaboral>('Lunes');
+
+    const seleccionarDia = (dia: DiaLaboral): void =>{
+        diaSeleccionado.value = dia;
+    }
+</script>
 
 <template>
   <h1>You did it!</h1>
