@@ -31,6 +31,10 @@
 
         return digitosDelDia.includes(ultimoDigito)
     })
+
+    const actualizarDni = (dni: string) : void=>{
+        dniInput.value = dni;
+    }
 </script>
 
 <template>
@@ -38,10 +42,10 @@
         <h1 class="text-3xl font-extrabond text-slate-800 mb-8">Gestor de Pagos</h1>
         
         <!-- Bloque de dias moduralizado-->
-        <ListOfDays/>
+        <ListOfDays @nuevo-dia-seleccionado="seleccionarDia"/>
 
         <!-- Bloque del dni-->
-        <DNIInput/>
+        <DNIInput @nuevo-dni-ingresado="actualizarDni"/>
 
         <div v-if="dniInput" class="mt-6">
             <p v-if="correspondeCobro" class="text-green-600 font-bold text-lg">¡Hoy te corresponde el pago!</p>
