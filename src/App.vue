@@ -2,6 +2,7 @@
     import { computed, ref } from 'vue';
     import ListOfDays from "./components/ListOfDays.vue";
     import DNIInput from "./components/DNIInput.vue";
+import CorrespondeCobro from './components/CorrespondeCobro.vue';
 
     type DiaLaboral = 'Lunes' | 'Martes' | 'Miercoles' | 'Jueves' | 'Viernes';
 
@@ -42,15 +43,15 @@
         <h1 class="text-3xl font-extrabond text-slate-800 mb-8">Gestor de Pagos</h1>
         
         <!-- Bloque de dias moduralizado-->
-        <ListOfDays @nuevo-dia-seleccionado="seleccionarDia"/>
+        <ListOfDays @nuevoDiaSeleccionado="seleccionarDia"/>
 
         <!-- Bloque del dni-->
-        <DNIInput @nuevo-dni-ingresado="actualizarDni"/>
+        <DNIInput @nuevoDniIngresado="actualizarDni"/>
 
-        <div v-if="dniInput" class="mt-6">
-            <p v-if="correspondeCobro" class="text-green-600 font-bold text-lg">¡Hoy te corresponde el pago!</p>
-            <p v-else class="text-red-500">Hoy no es tu turno de cobro</p>
-        </div>
+        <CorrespondeCobro
+        :dniInput="dniInput"
+        :correspondeCobro="correspondeCobro"
+        />
     </div>
     
 </template>

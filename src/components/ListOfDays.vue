@@ -13,6 +13,7 @@ import { ref } from "vue";
 
     const seleccionarDia = (dia: DiaLaboral): void =>{
         diaSeleccionado.value = dia;
+        emit("nuevoDiaSeleccionado", dia);
     }
 </script>
 
